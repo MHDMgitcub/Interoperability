@@ -51,7 +51,9 @@ format_table("ingredients", "pretty")
 cursor.close()
 connection.close()
 
+'''
 #import results from other independently working scripts
 import Query_price
 Query_price.get_recipe_price()
 Query_price.get_remaining_ingredients()
+'''

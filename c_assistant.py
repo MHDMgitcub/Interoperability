@@ -1,26 +1,64 @@
 import os
 import sqlite3
+from season_converter import str_season
 
 # Define the path for the database file
 db_directory = "database"
 db_path = os.path.join(db_directory, "recipes.db")
-import sqlite3
 
 # Connect to SQLite database
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
-# Execute a query
-cursor.execute('SELECT * FROM recipes')
+# CREATE - input all ingredients info
+while True:
+    ingredient = input('Ingredient: ')
+    if not ingredient:
+        break  # Exit the script if an empty value is entered
+                 
+#recover recipe_id   
+cursor.execute('''       
+    SELECT *
+    FROM ingredients
+    WHERE name = ?
+    ''', (ingredient,))
+ingredient_data = cursor.fetchall()
 
-# Fetch and print results
-rows = cursor.fetchall()
-for row in rows:
-    print(row)
-
-# Close cursor and connection
-cursor.close()
-conn.close()
+if ingredient_data:
+    quantity = input('Quantity: ')
+    
+    cursor.execute('''
+        SELECT id FROM ingredients
+        WHERE name = ?
+        ''', (ingredient,))    
+    ingredient_id = cursor.fetchone()[0]
+           
+    cursor.executemany('''
+        INSERT INTO recipe_breakdown (recipe_id, ingredient_id, quantity)
+        VALUES (?, ?, ?)
+                    ''',[(recipe_id, ingredient_id, quantity)])
+             
+           
+else:
+    quantity = input('Quantity: ')
+    packing = input('Packing: ')
+    price = input('Price: ')
+    season 
+        
+    cursor.executemany('''
+        INSERT INTO ingredients (name, packing)
+        VALUES (?, ?)''', [(ingredient, packing)])    
+             
+    cursor.execute('''
+        SELECT id FROM ingredients
+        WHERE name = ?
+            ''', (ingredient,))
+    ingredient_id = cursor.fetchone()[0]    
+       
+    cursor.executemany('''
+        INSERT INTO recipe_breakdown (recipe_id, ingredient_id, quantity)
+        VALUES (?, ?, ?)
+            ''',[(recipe_id, ingredient_id, quantity)])
 
 '''
 def create ingredient
@@ -28,10 +66,8 @@ def create ingredient
 def create recipe
     AI checker
     Image Parser
-    
+'''    
 
-
-'''
 
 '''
 add new recipe

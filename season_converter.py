@@ -18,6 +18,6 @@ def str_season(month):
     
     return '1-12'
         
-print(str_season('carrot'))
+
 
     

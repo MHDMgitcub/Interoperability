@@ -4,6 +4,7 @@ from collections import Counter  # Used to count occurrences of results
 from season_converter import str_season  # MHDM script to convert results to a usable format
 from dotenv import load_dotenv  # Import load_dotenv to load environment variables
 
+# The script is working but could be broken down into several questions to improve result
 
 def load_env_file(filepath):
     """
@@ -34,11 +35,12 @@ def set_groq_api_key():
 def AI_season_query(ingredient, query):
     set_groq_api_key()  # Set the Groq API key
     
-    user_prompt = f'What month is the {query} of {ingredient} eating season in the UK? No text, just a single number representing the month.'
+    #actual Query
+    user_prompt = f'What month is the {query} of {ingredient} season in the UK? No text, just a single number representing the month.'
     
     results = []  # Initialise an empty list to store the results
 
-    for _ in range(6):  # Repeat the query 6 times
+    for _ in range(7):  # Repeat the query 6 times
         try:
             # Create a Groq client instance with the API key from environment variables
             client = Groq(
@@ -71,5 +73,10 @@ def AI_season_query(ingredient, query):
     return str_season(most_common_value)
 
 # Example usage
-print(AI_season_query('apple', 'start'))
-print(AI_season_query('apple', 'end'))
+
+def auto_ingredient_season(ingredient):
+    start = AI_season_query(ingredient, 'start')
+    end = AI_season_query(ingredient, 'end')
+    return f'{start}-{end}'
+
+print(auto_ingredient_season('apple'))

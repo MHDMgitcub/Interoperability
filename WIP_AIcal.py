@@ -5,7 +5,7 @@ max_attempts = 3
 ingredient = 'apple'
 flag = 0
 
-while count < max_attempts and flag == 0:
+awhile count < max_attempts and flag == 0:
     # Prompt the user to determine if the ingredient is a solid or liquid
     response_1 = input(f'Is the ingredient {ingredient} considered a solid (1) or a liquid (0)? Reply with the corresponding number: ')
     

@@ -89,8 +89,8 @@ def auto_column_crawler(table_name, column_name, focus, rule):
     # Commit the changes to the database
     conn.commit()
 
-rule = lowercase
-column_crawler('recipes', 'importance', 'complete', rule)
+#rule = lowercase
+#column_crawler('recipes', 'importance', 'complete', rule)
 
 
 #rule = lowercase

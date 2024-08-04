@@ -1,6 +1,7 @@
 import os
 import sqlite3
 from datetime import date
+from utilities import *
 #from season_converter import str_season    
 
 # Define the path for the database file
@@ -31,11 +32,11 @@ while True:
                         
     elif recipe:
         print ('A new recipe is being created')
-        
+                     
         # Insert the new recipe info
         cursor.executemany('''
             INSERT INTO recipes (name, creation_date)
-            VALUES (?, ?)''', [(recipe, today)])  
+            VALUES (?, ?)''', [(titlecase(recipe), today)])  
             
         pending_change = True
     
@@ -70,7 +71,7 @@ while True:
                # Insert the new ingredient info
                 cursor.execute('''
                     INSERT INTO ingredients (name)
-                    VALUES (?)''', (ingredient,))  
+                    VALUES (?)''', (sentencecase(ingredient),))  
                 
                 pending_change = True
         
@@ -110,10 +111,12 @@ def create recipe
     Image Parser
 seasons
 calories
-column_crawler
+AI_column_crawler
 types
-origin
+origin of recipe
 delete recipe and associates breakdown
+alternative ingredient options
+
 '''    
 
 

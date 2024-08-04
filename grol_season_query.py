@@ -79,4 +79,9 @@ def auto_ingredient_season(ingredient):
     end = AI_season_query(ingredient, 'end')
     return f'{start}-{end}'
 
-print(auto_ingredient_season('apple'))
+#print(auto_ingredient_season('apple'))
+
+def AI_query(query):
+    set_groq_API_key()
+    results = []
+    user_prompt = query

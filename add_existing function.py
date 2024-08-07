@@ -1,3 +1,5 @@
+import pdb
+
 import os
 import sqlite3
 from datetime import date
@@ -12,9 +14,9 @@ db_path = os.path.join(db_directory, "recipes.db")
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 pending_change = False #track changes prior to commit
-
+flag = True
 # CREATE - input all recipe info
-while True:
+while flag == True:
     recipe = input('recipe name: ').strip().lower()
     today = date.today()
     
@@ -63,10 +65,11 @@ while True:
             ingredient_data = cursor.fetchall()
         
             if ingredient_data:
-                print('Ingredient already exists')
+                print('Ingredient already exists...')
+                #script continues to retrieve the ingredient ID              
                                 
-            elif ingredient:
-                print ('A new ingredient is being created')
+            if ingredient:
+                print ('A new ingredient is being created...')
                 
                # Insert the new ingredient info
                 cursor.execute('''
@@ -74,51 +77,53 @@ while True:
                     VALUES (?)''', (sentencecase(ingredient),))  
                 
                 pending_change = True
+            else:
+                if pending_change:
+                    print('Changes written to database...')
+                    #conn.commit()
+                    pending_change = False
+                else:
+                    print('no changes')
+                flag = False
+                break
         
                 # Retrieve the newly inserted ingredient's ID
-                cursor.execute('''
-                    SELECT id FROM ingredients
-                    WHERE LOWER(TRIM(name)) = ?
-                ''', (ingredient,))
-                ingredient_id = cursor.fetchone()[0]
+            cursor.execute('''
+                SELECT id FROM ingredients
+                WHERE LOWER(TRIM(name)) = ?
+             ''', (ingredient,))
+            ingredient_id = cursor.fetchone()[0]
         
-                #interconnect recipe with ingredients through the breakdown table
-                print(f'New ingredient created with ID: {ingredient_id}')               
-                cursor.executemany('''
-                    INSERT INTO recipe_breakdown (ingredient_id, recipe_id)
-                    VALUES (?,?)''', [(ingredient_id, recipe_id)])
+            #interconnect recipe with ingredients through the breakdown table
+            print(f'Ingredient with ID: {ingredient_id}')               
+            cursor.executemany('''
+                INSERT INTO recipe_breakdown (ingredient_id, recipe_id)
+                VALUES (?,?)''', [(ingredient_id, recipe_id)])
                     
-                pending_change = True
-
-            else:
-                break 
+            pending_change = True
+ 
     else:
-        if pending_change:
-            print('Changes written to database...')
-            conn.commit()
-            pending_change = False
-        else:
-            print('no changes')
-        break
-            
+          flag = False
+          
+
+'''
+def create ingredient
+    AI checker
+def create recipe
+    AI checker
+    Image Parser
+seasons
+calories
+AI_column_crawler
+types
+origin of recipe
+delete recipe and associates breakdown
+alternative ingredient options
+
+'''    
 
 
 '''
-def create recipe
-    AI calory
-    AI season
-    Image Parser
-    shopping destination dictionnary
-hierachy of shopping options
-seasons
-AI_column_crawler
-sql utilities 
-    add missing ingredient
-types
-origin of recipe
-delete recipe and associated breakdown
-alternative ingredient options
-time counter
-waste 
-
-'''    
+check the season of each ingredient with groom
+see if the recipe is in season
+'''

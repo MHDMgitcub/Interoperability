@@ -27,33 +27,39 @@ cursor = conn.cursor()
     #column name
     #empty/full/complete to select what to show
 
-def column_crawler(table_name, column_name, focus, rule):
-    
+def column_crawler(table_name, column_name, focus, rule=None):
+
     focus_dictionary = {
-    'empty': f'WHERE {column_name} IS NULL',
-    'full': f'WHERE {column_name} IS NOT NULL',
-    'complete': ''
+        'empty': f'WHERE {column_name} IS NULL',
+        'full': f'WHERE {column_name} IS NOT NULL',
+        'complete': ''
     }
     
-    focus = focus_dictionary.get(focus, '')
-
-    cursor.execute(f"SELECT * FROM {table_name} {focus}")
+    focus_clause = focus_dictionary.get(focus, '')
+    
+    cursor.execute(f"SELECT * FROM {table_name} {focus_clause}")
     records = cursor.fetchall()
-       
   
-    # Iterate over the fetched records
-    for crawler in records:
-        new_value = rule(input(f'{crawler}: '))
-        if new_value:           
+    
+    for record in records:
+        input_value = input(f'{record}: ')
+        
+        
+        
+        if rule:
+            new_value = rule(input_value)
+        else:
+            new_value = input_value
+        
+        if new_value:
             cursor.execute(
                 f'UPDATE {table_name} SET {column_name} = ? '
                 'WHERE id = ?',
-                (new_value, crawler[0])
-             )
+                (new_value, record[0])
+            )
             
-        else:
-            continue
-        conn.commit()
+    conn.commit()
+
         
 def auto_column_crawler(table_name, column_name, focus, rule):
     # Dictionary for focus conditions
@@ -88,6 +94,8 @@ def auto_column_crawler(table_name, column_name, focus, rule):
     
     # Commit the changes to the database
     conn.commit()
+
+column_crawler('ingredients', 'buy_where', 'empty')
 
 #rule = lowercase
 #column_crawler('recipes', 'importance', 'complete', rule)

@@ -13,7 +13,7 @@ print(f"Database file '{db_file}' successfully connected @ path: \n '{db_path}'.
 cursor = connection.cursor()
 
 #FUNCTION  to streamline the creation of a nicely formatted table
-def format_table(table, style):
+def format_table(table, style = 'pretty'):
     table_data = cursor.fetchall()
     headers = [description[0] for description in cursor.description]
     formatted_table = tabulate(table_data, headers, tablefmt=style)

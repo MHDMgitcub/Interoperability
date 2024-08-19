@@ -40,6 +40,7 @@ class MeanQuery(Query):
     def __init__(self):
         super().__init__()        
         self.list = []
+        self.start_deviation = 0.5
 
     def _list_results(self, list_length, query, exception_type, max_attempts):
         self.list = []  # Reset the list each time        
@@ -50,7 +51,7 @@ class MeanQuery(Query):
             self.list.append(float(result))
         return self.list    
             
-    def mean_list(self, list_length, start_deviation, query, exception_type, max_attempts):
+    def mean_list(self, list_length, query, exception_type, max_attempts):
         while True:
             results = self._list_results(list_length, query, exception_type, max_attempts)                                                          
             if results is None:
@@ -63,14 +64,14 @@ class MeanQuery(Query):
             if mean_result == 0:
                 return 0, 0
     
-            if deviation / mean_result < start_deviation:
-                start_deviation = int(round(start_deviation*100))
+            if deviation / mean_result < self.start_deviation:
+                var_coeff = int(round(deviation/mean_result * 100 / 5) * 5)
                 print(self.list)
-                return int(round(mean_result)), start_deviation
+                return int(round(mean_result)), var_coeff
             else:
                 print(self.list)
-                print(f"Results vary significantly with {int(round(start_deviation * 100))}% error margin... retrying" + '\n')
-                start_deviation += 0.1  # Modify this if you want different retry logic
+                print(f"Results vary significantly with {int(round(self.start_deviation * 100))}% error margin... retrying" + '\n')
+                self.start_deviation += 0.5  # Modify this if you want different retry logic
                         
 def calorie_processor(ingredient):
     liquid_solid = f'Is the ingredient {ingredient} considered a solid (1) or a liquid (0)? Reply only with the corresponding number: '     
@@ -87,10 +88,9 @@ def calorie_processor(ingredient):
     print(calorie_count)
     
     calorie_query = MeanQuery()
-    calorie_result, deviation = calorie_query.mean_list(5, 0.1, calorie_count, 'num_check', 6)
-    print(f'Result: {calorie_result} with {deviation}% margin of error')  
-    return calorie_result, deviation
+    calorie_result, var_coeff = calorie_query.mean_list(5, calorie_count, 'num_check', 15)
+    print(f'Result: {calorie_result} with {var_coeff}% margin of error')  
+    return calorie_result, var_coeff
     
-
-    
+ 
     

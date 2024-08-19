@@ -1,6 +1,7 @@
 import os
 import sqlite3
 from  utilities import *
+from AI_class_simple import calorie_processor
 
 #Create rule
 #    caps
@@ -95,7 +96,7 @@ def auto_column_crawler(table_name, column_name, focus, rule):
     # Commit the changes to the database
     conn.commit()
 
-column_crawler('ingredients', 'buy_where', 'empty')
+#column_crawler('ingredients', 'buy_where', 'empty')
 
 #rule = lowercase
 #column_crawler('recipes', 'importance', 'complete', rule)
@@ -107,6 +108,17 @@ column_crawler('ingredients', 'buy_where', 'empty')
 #rule = sentencecase
 # Apply the rule using the function
 #auto_column_crawler('ingredients', 'name', 'full', rule)
+
+
+ingredient = 'Cucumber'
+calorie_result, deviation = calorie_processor(ingredient)
+cursor.execute(
+    f"UPDATE ingredients SET calories_100  = ?, error_margin = ? WHERE name = ?",
+    (calorie_result, deviation, ingredient)
+)
+
+    # Commit the changes to the database
+conn.commit()
 
    
 

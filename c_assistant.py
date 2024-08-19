@@ -90,6 +90,7 @@ conn.close()
 '''
 def create recipe
     AI calory
+    AI timecount record
     AI season
     Image Parser
     shopping destination dictionnary

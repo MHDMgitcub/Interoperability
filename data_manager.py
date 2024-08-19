@@ -101,4 +101,4 @@ def add_columns_to_table(db_path, table_name, columns):
     conn.commit()
     conn.close()
 
-add_columns_to_table(db_path, 'ingredients', {'calories_100': 'REAL', 'error_margin': 'REAL'})
+#add_columns_to_table(db_path, 'ingredients', {'calories_100': 'REAL', 'error_margin': 'REAL'})

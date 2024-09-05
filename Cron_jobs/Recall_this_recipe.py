@@ -15,7 +15,7 @@ sys.path.append(custom_libs)
 
 #my own modules
 import SQL_utilities
-import Utilities
+import utilities
 
 
 # Define the path for the database file

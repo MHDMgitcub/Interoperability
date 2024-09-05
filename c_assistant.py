@@ -1,7 +1,17 @@
 import os
 import sqlite3
+import sys
 from datetime import date
-from utilities import *
+
+#link to my repo
+dir = '/storage/emulated/0/MHDM_git'
+custom_libs = os.path.join(dir, 'Custom_Libraries')
+sys.path.append(custom_libs)
+
+#my own modules
+import SQL_utilities
+import utilities
+
 # Define the path for the database file
 db_directory = "database"
 db_path = os.path.join(db_directory, "recipes.db")
@@ -33,7 +43,7 @@ while True:
         # Insert the new recipe info
         cursor.execute('''
             INSERT INTO recipes (name, creation_date)
-            VALUES (?, ?)''', (titlecase(recipe), today))
+            VALUES (?, ?)''', (utilities.titlecase(recipe), today))
         pending_change = True
         
         # Retrieve the newly inserted recipe's ID
@@ -62,7 +72,7 @@ while True:
                 print('A new ingredient is being created...')
                 cursor.execute('''
                     INSERT INTO ingredients (name)
-                    VALUES (?)''', (sentencecase(ingredient),))
+                    VALUES (?)''', (utilities.sentencecase(ingredient),))
                 pending_change = True
                 
                 # Retrieve the newly inserted ingredient's ID

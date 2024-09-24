@@ -11,6 +11,7 @@ sys.path.append(custom_libs)
 #my own modules
 import SQL_utilities
 import utilities
+import fuzzy_wip
 
 # Define the path for the database file
 db_directory = "database"
@@ -37,19 +38,25 @@ while True:
 
     if recipe_data:
         print('Recipe already exists')
-    elif recipe:
-        print('A new recipe is being created')
-        
-        # Insert the new recipe info
-        cursor.execute('''
-            INSERT INTO recipes (name, creation_date)
-            VALUES (?, ?)''', (utilities.titlecase(recipe), today))
-        pending_change = True
-        
-        # Retrieve the newly inserted recipe's ID
-        recipe_id = cursor.lastrowid
-        print(f'New recipe created with ID: {recipe_id}')
-        
+    elif recipe:        
+        type = input('type: ')     
+        # If no input is given, set `type` to None (which corresponds to NULL in SQL)
+        if not type:
+            print('...no type for now')
+            type = None
+        else:
+            type = fuzzy_wip.data_category(type, 'type')      
+            print(type)  
+            
+        importance = input('importance: ')   
+        if not importance:
+            print('...no importance for now')
+            importance = None
+        else:
+            importance = fuzzy_wip.data_category(importance, 'importance')      
+            print(importance)  
+             
+    
         # CREATE - Input all ingredients info        
         while True:
             ingredient = input('Ingredient: ').strip().lower()
@@ -91,7 +98,7 @@ while True:
 
 if pending_change:
     print('Changes written to database...')
-    conn.commit()
+    #conn.commit()
 
 conn.close()
 
@@ -99,7 +106,7 @@ conn.close()
 
 '''
 def create recipe
-    AI calory
+    Add the shop where you buy the ingredient 
     AI timecount record
     AI season
     Image Parser

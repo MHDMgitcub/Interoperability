@@ -1,7 +1,17 @@
 import os
 import sqlite3
-from  utilities import *
 from AI_class_simple import calorie_processor
+import sys
+
+#link to my repo
+dir = '/storage/emulated/0/MHDM_git'
+custom_libs = os.path.join(dir, 'Custom_Libraries')
+sys.path.append(custom_libs)
+
+#my own modules
+import SQL_utilities
+import utilities
+import fuzzy_wip
 
 #Create rule
 #    caps
@@ -11,9 +21,6 @@ from AI_class_simple import calorie_processor
 # Define the path for the database file
 db_directory = "database"
 db_path = os.path.join(db_directory, "recipes.db")
-
-import os
-import sqlite3
 
 # Define the path for the database file
 db_path = os.path.join("database", "recipes.db")
@@ -102,40 +109,40 @@ def auto_column_crawler(table_name, column_name, focus, rule):
 #column_crawler('recipes', 'importance', 'complete', rule)
 
 
-#rule = lowercase
-#column_crawler('recipes', 'type', 'empty', rule)
+rule = utilities.lowercase
+column_crawler('recipes', 'importance', 'empty', rule)
 
 #rule = sentencecase
 # Apply the rule using the function
 #auto_column_crawler('ingredients', 'name', 'full', rule)
 
 
-for i in range(20, 28):  # Adjust the range as needed
-    cursor.execute('''
-        SELECT name
-        FROM ingredients
-        WHERE id = ?
-    ''', (i,))
-    
-    result = cursor.fetchone()
-    if result:
-        ingredient = result[0]  # Extract the ingredient name from the tuple
-        
-        # Process the ingredient
-        calorie_result, var_coeff = calorie_processor(ingredient)
-        
-        # Update the database with the new values
-        cursor.execute(
-            '''
-            UPDATE ingredients 
-            SET calories_100 = ?, error_margin = ? 
-            WHERE id = ?
-            ''',
-            (calorie_result, var_coeff, i)
-        )
+#for i in range(20, 28):  # Adjust the range as needed
+#    cursor.execute('''
+#        SELECT name
+#        FROM ingredients
+#        WHERE id = ?
+#    ''', (i,))
+#    
+#    result = cursor.fetchone()
+#    if result:
+#        ingredient = result[0]  # Extract the ingredient name from the tuple
+#        
+#        # Process the ingredient
+#        calorie_result, var_coeff = calorie_processor(ingredient)
+#        
+#        # Update the database with the new values
+#        cursor.execute(
+#            '''
+#            UPDATE ingredients 
+#            SET calories_100 = ?, error_margin = ? 
+#            WHERE id = ?
+#            ''',
+#            (calorie_result, var_coeff, i)
+#        )
 
-        # Commit the changes to the database
-        conn.commit()
+#        # Commit the changes to the database
+#        conn.commit()
 
 
 

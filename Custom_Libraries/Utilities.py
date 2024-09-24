@@ -25,4 +25,35 @@ def titlecase(s):
             titlecased_words.append(word.capitalize())
     
     return ' '.join(titlecased_words)
+    
+def damerau_levenshtein(s1, s2):
+    lenstr1 = len(s1)
+    lenstr2 = len(s2)
+    
+    # Create a 2D array to store the distances
+    d = [[0] * (lenstr2 + 1) for _ in range(lenstr1 + 1)]
+    
+    for i in range(lenstr1 + 1):
+        d[i][0] = i
+    for j in range(lenstr2 + 1):
+        d[0][j] = j
+
+    for i in range(1, lenstr1 + 1):
+        for j in range(1, lenstr2 + 1):
+            cost = 0 if s1[i - 1] == s2[j - 1] else 1
+            
+            d[i][j] = min(
+                d[i - 1][j] + 1,    # Deletion
+                d[i][j - 1] + 1,    # Insertion
+                d[i - 1][j - 1] + cost  # Substitution
+            )
+
+            # Check for transpositions
+            if i > 1 and j > 1 and s1[i - 1] == s2[j - 2] and s1[i - 2] == s2[j - 1]:
+                d[i][j] = min(d[i][j], d[i - 2][j - 2] + cost)  # Transposition
+
+    return d[lenstr1][lenstr2]
+    
+
+
 

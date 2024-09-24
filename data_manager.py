@@ -1,3 +1,6 @@
+#improve - replace with levenstein distance
+
+
 import os
 import sqlite3
 

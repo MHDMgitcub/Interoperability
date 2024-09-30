@@ -39,14 +39,14 @@ while True:
     if recipe_data:
         print('Recipe already exists')
     elif recipe:        
+        print('A new recipe is being created')
         type = input('type: ')     
         # If no input is given, set `type` to None (which corresponds to NULL in SQL)
         if not type:
             print('...no type for now')
             type = None
         else:
-            type = fuzzy_wip.data_category(type, 'type')      
-            print(type)  
+            type = fuzzy_wip.data_category(type, 'type')                  
             
         importance = input('importance: ')   
         if not importance:
@@ -54,9 +54,16 @@ while True:
             importance = None
         else:
             importance = fuzzy_wip.data_category(importance, 'importance')      
-            print(importance)  
-             
-    
+                          
+        # Insert the new recipe info
+        cursor.execute('''
+            INSERT INTO recipes (name, creation_date, type, importance)
+            VALUES (?, ?, ?, ?)''', (utilities.titlecase(recipe), today, type, importance))
+        pending_change = True
+        
+        # Retrieve the newly inserted recipe's ID
+        recipe_id = cursor.lastrowid
+        print(f'New recipe created with ID: {recipe_id}')
         # CREATE - Input all ingredients info        
         while True:
             ingredient = input('Ingredient: ').strip().lower()
@@ -98,7 +105,7 @@ while True:
 
 if pending_change:
     print('Changes written to database...')
-    #conn.commit()
+    conn.commit()
 
 conn.close()
 

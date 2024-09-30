@@ -84,5 +84,3 @@ def data_category(word, column):
         conn.close()
 
         return data
-
-data_category(input('name: '), 'type')

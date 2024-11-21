@@ -13,6 +13,15 @@ import SQL_utilities
 import utilities
 import fuzzy_wip
 
+#link to my repo
+dir = '/storage/emulated/0/MHDM_git'
+Healthcheck_libs = os.path.join(dir, 'Health_Check')
+sys.path.append(Healthcheck_libs)
+
+from logger_class import ScriptLogger
+
+
+
 # Define the path for the database file
 db_directory = "database"
 db_path = os.path.join(db_directory, "recipes.db")
@@ -108,6 +117,12 @@ if pending_change:
     conn.commit()
 
 conn.close()
+       
+
+# Define the directory path
+dir = '/storage/emulated/0/MHDM_git/Health_Check'
+logger = ScriptLogger(log_dir=dir)
+logger.log_run()
 
 
 
@@ -123,11 +138,21 @@ seasons
 AI_column_crawler
 sql utilities 
     add missing ingredient
-types
 origin of recipe
 delete recipe and associated breakdown
 alternative ingredient options
 time counter
 waste 
+
+actually set up logging properly
+rig the ai calory script
+set the ai calory script in cron
+create a validation ai script
+set up a daily report telegram
+set up an app shotcut
+
+create a voice recorder to input comments on 
+recipies, Ai prorcess them to smooth them out, 
+and save the in the database.a
 
 '''    

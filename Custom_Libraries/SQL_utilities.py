@@ -29,7 +29,8 @@ def lookat_recipe(cursor, recipe_name, ):
     ''', (recipe_name,))
     print(f'ingredient list for {recipe_name}:')
     return format_table(cursor, recipe_name)
-    
+
+#to look up random recipes in my messaging crons    
 def random_recipe(cursor):
     cursor.execute('''
         SELECT recipes.name AS recipe_name, ingredients.name AS ingredient_name, ingredients.buy_where

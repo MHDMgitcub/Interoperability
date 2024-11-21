@@ -109,40 +109,40 @@ def auto_column_crawler(table_name, column_name, focus, rule):
 #column_crawler('recipes', 'importance', 'complete', rule)
 
 
-rule = utilities.lowercase
-column_crawler('recipes', 'importance', 'empty', rule)
+#rule = utilities.lowercase
+#column_crawler('recipes', 'importance', 'empty', rule)
 
 #rule = sentencecase
 # Apply the rule using the function
 #auto_column_crawler('ingredients', 'name', 'full', rule)
 
 
-#for i in range(20, 28):  # Adjust the range as needed
-#    cursor.execute('''
-#        SELECT name
-#        FROM ingredients
-#        WHERE id = ?
-#    ''', (i,))
-#    
-#    result = cursor.fetchone()
-#    if result:
-#        ingredient = result[0]  # Extract the ingredient name from the tuple
-#        
-#        # Process the ingredient
-#        calorie_result, var_coeff = calorie_processor(ingredient)
-#        
-#        # Update the database with the new values
-#        cursor.execute(
-#            '''
-#            UPDATE ingredients 
-#            SET calories_100 = ?, error_margin = ? 
-#            WHERE id = ?
-#            ''',
-#            (calorie_result, var_coeff, i)
-#        )
+for i in range(41, 60):  # Adjust the range as needed
+    cursor.execute('''
+        SELECT name
+        FROM ingredients
+        WHERE id = ?
+    ''', (i,))
+    
+    result = cursor.fetchone()
+    if result:
+        ingredient = result[0]  # Extract the ingredient name from the tuple
+        
+        # Process the ingredient
+        calorie_result, var_coeff = calorie_processor(ingredient)
+        
+        # Update the database with the new values
+        cursor.execute(
+            '''
+            UPDATE ingredients 
+            SET calories_100 = ?, error_margin = ? 
+            WHERE id = ?
+            ''',
+            (calorie_result, var_coeff, i)
+        )
 
-#        # Commit the changes to the database
-#        conn.commit()
+        # Commit the changes to the database
+        conn.commit()
 
 
 

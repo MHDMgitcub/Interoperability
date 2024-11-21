@@ -102,3 +102,5 @@ def calorie_processor(ingredient):
     calorie_result, var_coeff = calorie_query.mean_list(5, calorie_count, 'num_check', 15)
     print(f'Result: {calorie_result} with {var_coeff}% margin of error')  
     return calorie_result, var_coeff
+    
+calorie_processor('apple')

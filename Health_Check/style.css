@@ -1,0 +1,54 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Multi-point gradient background with white text */
+body {
+    background: radial-gradient(circle at 20% 30%, #1a1a1a, transparent 50%),
+                radial-gradient(circle at 95% 50%, rgba(0, 127, 255, 0.3), transparent 70%),
+                radial-gradient(circle at 50% 75%, #4b145b, transparent 50%),
+                radial-gradient(circle at 30% 85%, rgba(255, 182, 193, 0.1), transparent 55%),
+                black;
+    color: rgba(255, 255, 255, 0.9); /* White with 0.9 transparency */
+    font-family: Roboto, sans-serif;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start; /* Align items to start from the top */
+    flex-direction: column;
+    padding: 40px 20px; /* Space at the top of the screen */
+    height: 100vh;
+    mix-blend-mode: lighten; /* Blend mode for body text */
+}
+
+/* Style the main heading */
+h1 {
+    font-size: 1.4em; /* Smaller font size */
+    margin-bottom: 10px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.9); /* Consistent transparency */
+}
+
+/* Container for entries */
+#entries {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); /* Soft gradient */
+    color: rgba(255, 255, 255, 0.9); /* Match text colour to body */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: left;
+    margin-top: 10px; /* Small space between header and box */
+    mix-blend-mode: lighten; /* Apply blend mode for the box */
+}
+
+/* Style for individual entry paragraphs */
+#entries p {
+    font-size: 1em;
+    margin: 10px 0;
+    color: rgba(255, 255, 255, 0.9); /* Consistent transparency for all text */
+}

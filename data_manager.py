@@ -68,11 +68,11 @@ def SQL_merge_similar(db_path, alias):
         # Ensure the connection is always closed
         if conn:
             conn.close()
-            
-#alias = 'Avocado'
+#            
+#alias = 'zarella'
 #SQL_merge_similar(db_path, alias)
 
-'''    -   NEXT    -    '''
+#'''    -   NEXT    -    '''
 
 
 def add_columns_to_table(db_path, table_name, columns):

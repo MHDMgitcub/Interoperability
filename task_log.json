@@ -268,5 +268,497 @@
         "status": "SKIPPED",
         "message": "Script already ran today",
         "execution_time": "08:50:44"
+    },
+    {
+        "date": "2024-11-21",
+        "status": "SUCCESS",
+        "message": "Message sent to chat ID 7037406035",
+        "execution_time": "20:40:03"
+    },
+    {
+        "date": "2024-11-21",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "20:50:01"
+    },
+    {
+        "date": "2024-11-21",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "21:00:42"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SUCCESS",
+        "message": "Message sent to chat ID 7037406035",
+        "execution_time": "08:00:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "08:11:14"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "08:51:55"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:01:49"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:11:15"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:20:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:32:36"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:40:26"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:51:56"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:00:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:41:10"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "11:00:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "11:31:53"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "11:40:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "11:51:06"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "13:50:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "14:00:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "14:10:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "16:50:55"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:02:24"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:30:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:40:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:50:14"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:00:18"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:10:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:20:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:30:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:40:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:50:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "19:00:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "19:10:22"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "19:20:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "19:30:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "19:40:01"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "21:30:30"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "22:10:30"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "22:20:02"
+    },
+    {
+        "date": "2024-11-22",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "23:00:02"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SUCCESS",
+        "message": "Message sent to chat ID 7037406035",
+        "execution_time": "08:00:11"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:10:02"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:20:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:30:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:40:02"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "09:50:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:00:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:10:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:20:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:30:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:42:19"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "10:51:19"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "11:00:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "11:20:02"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "12:04:31"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "12:12:21"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "12:20:02"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "12:30:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "12:40:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "12:50:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "13:50:30"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "14:00:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "14:41:45"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "15:00:52"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "15:13:51"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "15:41:51"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "16:26:18"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "16:34:47"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "16:40:23"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "16:50:37"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:03:21"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:20:00"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:32:20"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:42:35"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "17:50:01"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:04:28"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:11:23"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "18:22:44"
+    },
+    {
+        "date": "2024-11-23",
+        "status": "SKIPPED",
+        "message": "Script already ran today",
+        "execution_time": "19:00:01"
+    },
+    {
+        "date": "2024-11-24",
+        "status": "FAILED",
+        "message": "Failed to send message: httpx.ConnectError: [Errno 7] No address associated with hostname",
+        "execution_time": "10:30:02"
+    },
+    {
+        "date": "2024-12-09",
+        "status": "FAILED",
+        "message": "Failed to send message: httpx.ConnectError: [Errno 7] No address associated with hostname",
+        "execution_time": "18:30:02"
     }
 ]

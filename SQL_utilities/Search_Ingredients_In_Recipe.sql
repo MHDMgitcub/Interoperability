@@ -4,3 +4,6 @@ JOIN recipe_breakdown ON ingredients.id = recipe_breakdown.ingredient_id
 JOIN recipes ON recipes.id = recipe_breakdown.recipe_id
 WHERE recipes.name = "Salade Estivale"
 
+#views:
+    recipe_with_total_quantity
+

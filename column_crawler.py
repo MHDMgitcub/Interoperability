@@ -1,6 +1,7 @@
 import os
 import sqlite3
-from AI_class_simple import calorie_processor
+#prev: from AI_class_simple import calorie_processor
+from AI_Class02 import calorie_processor
 import sys
 
 #link to my repo
@@ -117,19 +118,21 @@ def auto_column_crawler(table_name, column_name, focus, rule):
 #auto_column_crawler('ingredients', 'name', 'full', rule)
 
 
-for i in range(41, 60):  # Adjust the range as needed
+
+## SCRIPT TO RUN AI THROUGH RANGE ##
+for ingredient_id in range(144, 172):  # Adjust the range as needed
     cursor.execute('''
         SELECT name
         FROM ingredients
         WHERE id = ?
-    ''', (i,))
+    ''', (ingredient_id,))
     
     result = cursor.fetchone()
     if result:
-        ingredient = result[0]  # Extract the ingredient name from the tuple
+        ingredient_name = result[0]  # Extract the ingredient name from the tuple
         
         # Process the ingredient
-        calorie_result, var_coeff = calorie_processor(ingredient)
+        calorie_result, var_coeff = calorie_processor(ingredient_name)
         
         # Update the database with the new values
         cursor.execute(
@@ -138,7 +141,7 @@ for i in range(41, 60):  # Adjust the range as needed
             SET calories_100 = ?, error_margin = ? 
             WHERE id = ?
             ''',
-            (calorie_result, var_coeff, i)
+            (calorie_result, var_coeff, ingredient_id)
         )
 
         # Commit the changes to the database

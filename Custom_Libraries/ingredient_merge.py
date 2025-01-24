@@ -10,7 +10,6 @@ db_path = os.path.join(db_directory, "recipes.db")
 
 #Make sure the reconnection is made
 
-import sqlite3
 
 def SQL_merge_similar(db_path, alias):
     try:
@@ -126,19 +125,19 @@ def add_columns_to_table(db_path, table_name, columns):
     
 #-     NEXT     -
 
-#def group_ingredients(db_path):
-   # try:
-#        # Connect to SQLite database
-#        conn = sqlite3.connect(db_path)
-#        cursor = conn.cursor()           
-#    
-#        # Retrieve records matching the alias
-#        cursor.execute('''
-#            SELECT name FROM ingredients           
-#        ''', (f'%{alias}%',))
+def group_ingredients(db_path):
+    try:
+        # Connect to SQLite database
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()           
+    
+        # Retrieve records matching the alias
+        cursor.execute('''
+            SELECT name FROM ingredients           
+        ''', (f'%{alias}%',))
 #        
 #group_ingredients(db_path)
 #    
 #-   ENACT    -
-#
+
 #add_columns_to_table(db_path, 'ingredients', {'calories_100': 'REAL', 'error_margin': 'REAL'})

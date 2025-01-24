@@ -5,7 +5,7 @@ class Query:
     def __init__(self, cull_list=None):
         self.cull_list = cull_list if cull_list else []
 
-    def resolve(self, query, exception_type, max_attempts):
+    def resolve(self, query, exception_type = None, max_attempts = 3):
         attempts = 0           
         while attempts < max_attempts:
             try:
@@ -23,19 +23,31 @@ class Query:
         return AI_query(query)
         
     def _handle_result(self, exception_type, query_result):
-        if exception_type == 'boolean_check':
+        if exception_type is None:
+            return query_result
+        elif exception_type == 'boolean_check':
             if int(query_result) not in (0, 1):
                 raise ValueError("Result must be 0 or 1.")
         elif exception_type == 'num_check':
+            original_result = query_result
             if isinstance(query_result, str):
                 try:
-                    float(query_result)
+                    float(query_result)           
                 except ValueError:
                     query_result = self._cull_strings(query_result)
+ 
                     try:
                         float(query_result)
                     except ValueError:
-                        raise TypeError("Query failed to return a number even after culling." + query_result)
+                        if '-' in query_result:
+                            try:
+                                parts = query_result.split('-')
+                                query_result = str((float(parts[0]) + float(parts[1]))/2)                              
+                            except ValueError:
+                                raise TypeError("Query failed to return a number even after culling. ~ " + original_result)
+                        else:
+                            raise TypeError("Query not a number" + original_result)
+                            
         else:
             raise ValueError("Unknown query type.")
         return query_result
@@ -87,7 +99,7 @@ def calorie_processor(ingredient):
     print(liquid_solid)
     
     # Run first query
-    cull_cal = ['kcal', 'calories', 'Calories', 'cal']
+    cull_cal = ['kcal', 'calories', 'Calories', 'cal', 's', 'kal', 'calorie', 'Calorie', '-kcal', 'kcal/L']
     
     unit_query = Query()             
     unit_result = unit_query.resolve(liquid_solid, 'boolean_check', 3)
@@ -103,3 +115,32 @@ def calorie_processor(ingredient):
     print(f'Result: {calorie_result} with {var_coeff}% margin of error'+'\n\n')  
     return calorie_result, var_coeff
     
+
+def price_estimator(ingredient):
+    #what is the typical price of x of x bought at x?
+    
+    price = f'what is the price per kg of {ingredient} in £. give me a single answer with no description'
+    cull_pound = ['£']
+    price_query = Query(cull_pound)    
+    estimated_price = float(price_query.resolve(price, 'num_check'))
+    
+    portion = f'what is a standard portion of {ingredient} you can buy at a supermarket to for two in the UK. give me a single answer with no description'
+    portion_query = Query()
+    estimated_portion = portion_query.resolve(portion)       
+    
+    conversion = f'what weight in metric does {portion} of {ingredient} correspond to?'
+    cull_metric = ['g', 'kg'] 
+    conversion_query = Query(cull_metric)
+    estimated_conversion = float(conversion_query.resolve(conversion, 'num_check'))
+    
+    total = estimated_conversion * estimated_price
+    return(total)
+    
+    
+  
+    
+    #think of informin you on the price of large itcket items and get you to check them from the most to the least expensive
+ 
+#ingredient = 'avocadoes'
+#print(f'The price of a portion of {ingredient} is £' + price_estimator(ingredient))
+

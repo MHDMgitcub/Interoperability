@@ -127,29 +127,35 @@ logger.log_run()
 
 
 '''
+most important: fix repeat names of ingredient
+remine me of recipes first prepped on that day
 def create recipe
-        Add the shop where you buy the ingredient 
+    Add the shop where you buy the ingredient 
     AI timecount record
-        AI season
-            Image Parser
-                    shopping destination dictionnary
-                hierachy of shopping options
-                    integrate column crawler
-    create inspiration recipe system    
-        sql utilities - add/delete  ingredient    
-        delete recipe and associated breakdown    
+    AI season
+    Image Parser
+    shopping destination dictionnary
+hierachy of shopping options
+seasons
+AI_column_crawler
+sql utilities 
+    add missing ingredient
 origin of recipe
-        alternative ingredient options
-            waste 
-                fix actually set up logging properly
-                rig the ai calory script
-                set the ai calory script in cron
-                create a validation ai script
-                set up a daily report telegram
-                set up an app shotcut                
-                    durability - how long can it last in the fridge
-                        create a voice recorder to input comments on 
-                                Cumulative addition  graph of recipe
-                    be able to reference a recipe as an ingredient (as in pain d'epice)
+delete recipe and associated breakdown
+alternative ingredient options
+time counter
+waste 
+        and perishable countdown after recipe stored
+
+actually set up logging properly
+rig the ai calory script
+set the ai calory script in cron
+create a validation ai script
+set up a daily report telegram
+set up an app shotcut
+
+create a voice recorder to input comments on 
+recipies, Ai prorcess them to smooth them out, 
+and save the in the database.a
 
 '''    

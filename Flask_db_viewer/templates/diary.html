@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diary for Recipe {{ recipe_id }}</title>
+</head>
+<body>
+    <h2>Diary for Recipe ID: {{ recipe_id }}</h2>
+    <p>Write your notes for this recipe...</p>
+
+    <!-- Back to Recipe Details -->
+    <a href="{{ url_for('recipe_details', recipe_id=recipe_id) }}">
+        <button>Back to Recipe Details</button>
+    </a>
+
+    <!-- Back to Clock -->
+    <a href="{{ url_for('clock_page', recipe_id=recipe_id) }}">
+        <button>Back to Clock</button>
+    </a>
+</body>
+</html>

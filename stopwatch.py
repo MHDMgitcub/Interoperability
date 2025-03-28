@@ -2,6 +2,21 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
 import time
+import os
+
+# Define the path for the database file
+db_directory = "database"
+db_path = os.path.join(db_directory, "recipes.db")
+
+#Make sure the reconnection is made
+
+import sqlite3
+
+#look up a recepy
+#with autocomplte
+#once a recipe is identifies i want to check if it has a cooking_time value
+#if doesnt have one create it
+# id it has, average with previous valies
 
 
 def spaced_text(text: str) -> str:
@@ -171,7 +186,7 @@ class Stopwatch:
 
 
 # Recipe input from outside the class
-recipe_name = "Egg Sandwich"  # Recipe name to display in the app header
+recipe_name = "Egg Hello!" # Recipe name to display in the app header
 
 # Create the GUI application
 root = tk.Tk()  # Create the main application window

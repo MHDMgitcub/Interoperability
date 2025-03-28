@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock for {{ recipe_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Clock for {{ recipe_name }}</h2>
+
+    <div class="stopwatch-container">
+        <svg class="progress-ring" width="160" height="160">
+            <circle class="progress-ring-bg" cx="80" cy="80" r="70"></circle>
+            <circle class="progress-ring-circle" cx="80" cy="80" r="70"></circle>
+        </svg>
+        <span id="display">00:00:00</span>
+    </div>
+
+    <div class="buttons">
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="stopStopwatch()">Stop</button>
+        <button onclick="resetStopwatch()">Reset</button>
+        <button onclick="saveTime()">Save</button>
+    </div>
+
+    <h3>Saved Times:</h3>
+    <ul id="savedTimes"></ul>
+
+    <a href="{{ url_for('diary_page', recipe_id=recipe_id) }}">
+        <button>Go to Diary</button>
+    </a>
+
+    <script src="{{ url_for('static', filename='stopwatch.js') }}"></script>
+</body>
+</html>

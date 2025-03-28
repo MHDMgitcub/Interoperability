@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ recipe.name }}</title>
+    <script src="{{ url_for('static', filename='swipe.js') }}"></script>
+</head>
+<body>
+    <h2>{{ recipe.name }}</h2>
+
+    <h3>Ingredients</h3>
+    <ul>
+        {% for ingredient, buy_where in recipe.ingredients %}
+            <li>{{ ingredient }} (Buy at: {{ buy_where }})</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Links to Clock and Diary pages with the recipe_id -->
+    <a href="{{ url_for('clock_page', recipe_id=recipe['id']) }}">
+        <button>Go to Clock</button>
+    </a>
+
+    <a href="{{ url_for('diary_page', recipe_id=recipe['id']) }}">
+        <button>Go to Diary</button>
+    </a>
+
+    <a href="{{ url_for('home') }}">Back to Recipes</a>
+</body>
+</html>
